@@ -1,0 +1,12 @@
+cff-version: 1.0.0
+message: "If this sofware was somewhat helpful, please cite it as follows"
+authors:
+- family-names: "Chernyavskiy"
+  given-names: "Danila"
+  orcid: "https://orcid.org/0000-0003-4549-7981"
+title: "pyCIFer - automated CIF edit and ESI-style report to .docx files"
+version: v2026/1
+doi: 10.5281/zenodo.18148748
+date-released: 2026-01-05
+
+url: "https://github.com/dchchem/pyCIFer"
