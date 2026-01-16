@@ -2,7 +2,7 @@
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/c364a8d1-036d-4963-b77a-fb436884eb91" />
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18148748.svg)](https://doi.org/10.5281/zenodo.18148748)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18148747.svg)](https://doi.org/10.5281/zenodo.18148747)
 
 ### Installment and file redirection
 pyCIFer is distributed using an ```.exe``` wizard installer, however an initial ```.py``` code can be sent to those interested (for that matter please contact the author).
