@@ -24,6 +24,12 @@ The style of CIF report in pyCIFer is somewhat similar to what is implemented in
 - ```{{ resolution }}``` - crystal structure evaluation resolution (calculated from ```.cif``` file directly);
 - ```{{ tabno }}``` and ```{{ comno }}``` - table and compound (roman numerals!) numbers, respectively.
 
+Additionally, some new custom values have been added in version v2026/1-1, dedicated to hydrogen bonding parameters (**make sure the hydrogen bonds are added to a CIF file beforehand**):
+- ```{{ hbond.donor }}``` and ```{{ hbond.acceptor }}``` - atom corresponding to a hydrogen bond donor an acceptor;
+- ```{{ hbond.dh_length }}```, ```{{ hbond.ha_length }}```, ```{{ hbond.da_length }}``` and ```{{ hbond.dha_angle }}``` - main geometrical parameters of hydrogen bonds;
+- ```{{ hbond.symmcode }}``` - SHELX-style symmcode;
+- ```{{r hbond.symmop }}``` - text-like analogue for symmcode in richtext mode, *i.e.* using italics for axes (*e.g.*, prints 1-*x*, *y*, 1+*z* for ```1_456``` symmcode).
+
 ### CIF report (several files)
 The report style in templates is basically the same as in one-structure case, apart for some details. Due to file implementation in pyCIFer, the values are called using an additional ```{%tc for dbc in dbcs %}``` loop (or a ```{%tr ... }``` depending on what case of report is needed, see the ```mdef``` and ```macta``` example templates), and the dictionary values, are called from ```dbc``` (*e.g.* ```{{ dbc._space_group_crystal_system }}```).
 
