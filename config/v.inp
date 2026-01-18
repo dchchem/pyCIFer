@@ -1,0 +1,18 @@
+_exptl_crystal_description		!INPUT
+_exptl_crystal_colour		!INPUT
+_exptl_crystal_size_max		!INPUT
+_exptl_crystal_size_mid		!INPUT
+_exptl_crystal_size_min		!INPUT
+_cell_measurement_theta_max		!SAINGL
+_cell_measurement_theta_min		!SAINGL
+_cell_measurement_reflns_used		!SAINGL
+_diffrn_source		microfocus sealed X-ray tube
+_diffrn_measurement_device_type		Bruker SMART APEX2 area detector
+_diffrn_measurement_method		\w and \f scans
+_computing_data_collection		Bruker APEX3 v2019.1-0 (Bruker Nano, 2019)
+_computing_cell_refinement		SAINT v8.37A (Bruker, 2015)
+_computing_data_reduction		SAINT v8.37A (Bruker, 2015)
+_computing_structure_solution		SHELXT-2014/5 (Sheldrick, 2014)
+_computing_molecular_graphics		XP v5.1 (Bruker, 1998)
+_atom_sites_solution_primary		direct
+_atom_sites_solution_secondary		difmap

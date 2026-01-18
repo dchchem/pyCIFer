@@ -5,8 +5,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18148747.svg)](https://doi.org/10.5281/zenodo.18148747)
 
 ### Installment and file redirection
-pyCIFer is distributed using an ```.exe``` wizard installer, however an initial ```.py``` code can be sent to those interested (for that matter please contact the author).
-Upon installation, a note would pop up to direct the files extracted to ```C:\exe``` folder (since it is **crucial** for appropriate work of pyCIFer). All the files, except for ```pyCIFer.exe```, should be put to ```config``` folder (*i.e.* the template ```.docx``` and ```.inp``` files). At last, one has to create a PATH variable for working in command line.
+pyCIFer is distributed using an executable, however an initial ```.py``` code can be sent to those interested (for that matter please contact the author).
+Upon installation, make sure to direct the files in ```config``` folder ((*i.e.* the template ```.docx``` and ```.inp``` files) to ```C:\exe``` (since it is **crucial** for appropriate work of pyCIFer). At last, one has to create a PATH variable for working in command line.
 
 ### Argument list
 pyCIFer is usually opened *via* a command line by typing either ```pycifer``` (if PATH variable is present) or ```pycifer.exe```. After entering the filename (without any extension!) the following arguments are available:
