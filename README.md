@@ -12,7 +12,8 @@ Upon installation, make sure to direct the files in ```config``` folder ((*i.e.*
 pyCIFer is usually opened *via* a command line by typing either ```pycifer``` (if PATH variable is present) or ```pycifer.exe```. After entering the filename (without any extension!) the following arguments are available:
 - A -- insert additional info to CIF file
 - R -- report structure using a template
-- M -- report multple structures in one table using a template
+- M -- report multiple structures in one table using a template
+- S -- select new CIF file
 - Q -- quit the program
 
 Asides the last one, below is a short explanation of working with each of the three commands.
