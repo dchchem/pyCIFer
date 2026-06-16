@@ -2,7 +2,7 @@
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/c364a8d1-036d-4963-b77a-fb436884eb91" />
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18148747.svg)](https://doi.org/10.5281/zenodo.18148747)
+![Static Badge](https://img.shields.io/badge/DOI_(all_versions)-10.5281%2Fzenodo.18148747-blue)
 
 ### Installment and file redirection
 pyCIFer is distributed using an executable, however an initial ```.py``` code can be sent to those interested (for that matter please contact the author).
@@ -10,11 +10,11 @@ Upon installation, make sure to direct the files in ```config``` folder ((*i.e.*
 
 ### Argument list
 pyCIFer is usually opened *via* a command line by typing either ```pycifer``` (if PATH variable is present) or ```pycifer.exe```. After entering the filename (without any extension!) the following arguments are available:
-- A -- insert additional info to CIF file
-- R -- report structure using a template
-- M -- report multiple structures in one table using a template
-- S -- select new CIF file
-- Q -- quit the program
+- ```[A]``` -- insert additional info to CIF file
+- ```[R]``` -- report structure using a template
+- ```[M]``` -- report multiple structures in one table using a template
+- ```[S]``` -- select new CIF file
+- ```[Q]``` -- quit the program
 
 Asides the last one, below is a short explanation of working with each of the three commands.
 
