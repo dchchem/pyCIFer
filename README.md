@@ -53,6 +53,7 @@ The ```.dvp``` files can be edited to one's taste and needs via certain general 
 - ```GRUP-X``` - all entries, listed in a group No. X, must be present and given, if at least one non-'?' value is present. Maximum 9 different groups can be made (GRUP-1 through GRUP-9)
 - ```LEAS-X``` - at least one of the entries, listed in group, must be present and given. Numbering same as ```GRUP```
 - ```OLDE``` - old (deprecated) entry type
+
 Other keywords are to be added later. Comments can be also put at the DVP files with a hashtag symbol.
 
 Example of usage in DVP file:
