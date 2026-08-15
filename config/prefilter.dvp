@@ -1,0 +1,150 @@
+# IUCr Data Validation Prefilter (DVP)
+# (C) International Union of Crystallography, 2026
+# DVP file written by D.R. Chernyavskiy for pyCIFer v2026/3, 2026
+#
+# See https://journals.iucr.org/services/cif/checking/prefilter.html for more info
+#
+# The lines in this file are read as follows:
+# TYPE_XXX		Entry		Check types
+# 
+# ---Keyword-------Check----------------------------------------------------
+#    PRES          Must be present in CIF file
+#    CHAR          Must be of type 'char'
+#    NUMB          Must be of type 'numb' (number, either float or integer)
+#    NOEM          Must be non-empty
+#    HYDR		   Must be present if structure contains any H atoms
+#    FRAC          Must not contain fractions as decimals;
+#                  checked by presence of any dot symbols  
+#    GRUP-X        All entries, listed in a group No. X,
+#                  must be present and given, if at least one non-'?'
+#                  value is present. 1 <= X <= 9
+#    LEAS-X        At least one of the entries, listed in group, must
+#                  be present and given. 1<= X <= 9
+#    OLDE          Old entry type, comment to change it
+#    REFL          Special check for DIFF_012 entry:
+#                  must be present if _reflns_number_total != _reflns_number_gt
+#                  or _reflns_number_observed. Must be 0 if present and _total = _gt
+#    ABSS          Special GRUP-like check for REFL_021 entry:
+#                  type - _refine_ls_abs_structure_*
+#                  if _details are present, then _Flack or _Rogers must be present
+#                  and vice versa
+#
+#    
+# PUBL-001 to 012 are not so important, take off the hashtag if necessary
+#PUBL_001		_publ_contact_author_name		PRES CHAR
+#PUBL_001		_publ_contact_author		OLDE CHAR
+#PUBL_005		_publ_contact_author_email		CHAR
+#PUBL_006		_publ_requested_journal		PRES CHAR
+#PUBL_008		_publ_section_title		PRES CHAR
+#PUBL_009		_publ_author_name		PRES CHAR
+#PUBL_010		_publ_author_address		PRES CHAR
+#PUBL_011		_publ_section_synopsis		CHAR
+#PUBL_012		_publ_section_abstract		PRES CHAR
+PUBL_013		_publ_section_comment		CHAR
+PUBL_014		_publ_section_exptl_prep		CHAR
+PUBL_016		_publ_section_exptl_refinement		LEAS-1 CHAR
+PUBL_016		_computing_data_collection		LEAS-1 CHAR
+PUBL_016		_computing_cell_refinement		LEAS-1 CHAR
+PUBL_016		_computing_data_reduction		LEAS-1 CHAR
+PUBL_016		_computing_structure_solution		LEAS-1 CHAR
+PUBL_016		_computing_structure_refinement		LEAS-1 CHAR
+PUBL_016		_computing_molecular_graphics		LEAS-1 CHAR
+PUBL_016		_computing_publication_material		LEAS-1 CHAR
+PUBL_017		_publ_section_references		PRES NOEM
+ATOM_001		_atom_type_scat_source		PRES CHAR
+CHEM_001		_chemical_formula_sum		PRES CHAR
+CHEM_002		_chemical_formula_moiety		CHAR
+CHEM_003		_chemical_formula_weight		PRES NUMB
+SYMM_001		_space_group_crystal_system		PRES CHAR
+SYMM_003		_space_group_name_H-M_alt		PRES CHAR
+SYMM_003		_symmetry_space_group_name_H-M		OLDE CHAR
+SYMM_004		_space_group_symop_operation_xyz		PRES CHAR
+SYMM_004		_symmetry_equiv_pos_as_xyz		OLDE CHAR
+SYMM_005		_space_group_symop_operation_xyz		FRAC
+#
+# Entries CELL Nos. 211-213, 231-233, 251-255, 271-273 are to be added.
+#
+CELL 2XX		_cell_length_a		PRES NUMB
+CELL 2XX		_cell_length_b		PRES NUMB
+CELL 2XX		_cell_length_c		PRES NUMB
+CELL 2XX		_cell_angle_alpha		PRES NUMB
+CELL 2XX		_cell_angle_beta		PRES NUMB
+CELL 2XX		_cell_angle_gamma		PRES NUMB
+CELL_001		_cell_volume		PRES NUMB
+CELL_002		_cell_formula_units_Z		PRES NUMB
+EXPT_002		_exptl_crystal_density_meas		GRUP-1 CHAR
+EXPT_003		_exptl_crystal_density_method		GRUP-1 CHAR
+DIFF_001		_diffrn_radiation_type		PRES CHAR
+DIFF_002		_diffrn_radiation_wavelength		PRES NUMB
+CELL_003		_cell_measurement_reflns_used		PRES NUMB
+CELL_004		_cell_measurement_theta_min		PRES NUMB
+CELL_005		_cell_measurement_theta_max		PRES NUMB
+CELL_006		_cell_measurement_temperature		PRES NUMB
+EXPT_004		_exptl_absorpt_coefficient_mu		PRES NUMB
+EXPT_005		_exptl_crystal_description		PRES CHAR
+EXPT_006		_exptl_crystal_size_max		PRES NUMB
+EXPT_007		_exptl_crystal_size_mid		PRES NUMB
+EXPT_008		_exptl_crystal_size_min		PRES NUMB
+EXPT_010		_exptl_crystal_colour		PRES CHAR
+DIFF_003		_diffrn_measurement_device_type		PRES CHAR
+DIFF_004		_diffrn_measurement_device		OLDE CHAR
+DIFF_005		_diffrn_measurement_method		PRES CHAR
+DIFF_006		_diffrn_detector_area_resol_mean		PRES NOEM
+EXPT_011		_exptl_absorpt_correction_type		GRUP-2 NOEM CHAR
+EXPT_012		_exptl_absorpt_process_details		GRUP-2 CHAR
+EXPT_013		_exptl_absorpt_correction_T_min		GRUP-2 NUMB
+EXPT_014		_exptl_absorpt_correction_T_max		GRUP-2 NUMB
+DIFF_007		_diffrn_reflns_number		PRES NUMB
+REFL_001		_reflns_number_total		PRES NUMB
+REFL_002		_reflns_number_gt		PRES NUMB
+REFL_003		_reflns_number_observed		OLDE NUMB
+REFL_004		_reflns_threshold_expression		PRES CHAR
+REFL_005		_reflns_observed_criterion		OLDE NUMB
+DIFF_008		_diffrn_reflns_theta_max		PRES NUMB
+#DIFF_012		_diffrn_reflns_av_R_equivalents		NUMB REFL
+DIFF_013		_diffrn_reflns_limit_h_min		PRES NUMB
+DIFF_014		_diffrn_reflns_limit_h_max		PRES NUMB
+DIFF_015		_diffrn_reflns_limit_k_min		PRES NUMB
+DIFF_016		_diffrn_reflns_limit_k_max		PRES NUMB
+DIFF_017		_diffrn_reflns_limit_l_min		PRES NUMB
+DIFF_018		_diffrn_reflns_limit_l_max		PRES NUMB
+REFL_001		_refine_ls_structure_factor_coef		PRES CHAR
+REFL_003		_refine_ls_R_factor_gt		PRES NUMB
+REFL_004		_refine_ls_R_factor_obs		OLDE NUMB
+REFL_005		_refine_ls_wR_factor_ref		PRES NUMB
+REFL_006		_refine_ls_wR_factor_obs		OLDE NUMB
+REFL_007		_refine_ls_goodness_of_fit_ref		PRES NUMB
+RELF_008		_refine_ls_goodness_of_fit_obs		OLDE NUMB
+REFL_009		_refine_ls_number_reflns		PRES NUMB
+REFL_010		_refine_ls_number_parameters		PRES NUMB
+REFL_011		_refine_ls_weighting_scheme		PRES CHAR
+REFL_013		_refine_ls_weighting_details		PRES CHAR
+REFL_014		_refine_ls_hydrogen_treatment		HYDR CHAR
+REFL_015		_refine_ls_shift/su_max		PRES NUMB
+REFL_016		_refine_ls_shift/esd_max		OLDE NUMB
+REFL_017		_refine_diff_density_max		PRES NUMB
+REFL_018		_refine_diff_density_min		PRES NUMB
+REFL_019		_refine_ls_extinction_method		GRUP-3
+REFL_020		_refine_ls_extinction_coef		GRUP-3
+#REFL_021		_refine_ls_abs_structure_detail		ABSS
+#REFL_021		_refine_ls_abs_structure_Flack		ABSS
+#REFL_021		_refine_ls_abs_structure_Rogers		OLDE ABSS
+ATOM_002		_atom_site_label		PRES CHAR
+ATOM_003		_atom_site_fract_x		PRES NUMB
+ATOM_004		_atom_site_fract_y		PRES NUMB
+ATOM_005		_atom_site_fract_z		PRES NUMB
+ATOM_006		_atom_site_U_iso_or_equiv		PRES CHAR
+ATOM_007		_atom_site_aniso_label		PRES CHAR
+ATOM_008		_atom_site_aniso_U_11		PRES NUMB
+ATOM_009		_atom_site_aniso_U_22		PRES NUMB
+ATOM_010		_atom_site_aniso_U_33		PRES NUMB
+ATOM_011		_atom_site_aniso_U_12		PRES NUMB
+ATOM_012		_atom_site_aniso_U_13		PRES NUMB
+ATOM_013		_atom_site_aniso_U_23		PRES NUMB
+GEOM_001		_geom_bond_atom_site_label_1		PRES CHAR
+GEOM_002		_geom_bond_atom_site_label_2		PRES CHAR
+GEOM_003		_geom_bond_distance		PRES NUMB
+GEOM_005		_geom_angle_atom_site_label_1		PRES CHAR
+GEOM_006		_geom_angle_atom_site_label_2		PRES CHAR
+GEOM_007		_geom_angle_atom_site_label_3		PRES CHAR
+GEOM_008		_geom_angle		PRES NUMB
