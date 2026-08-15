@@ -44,18 +44,17 @@ From version v2026/3 and onward, *pyCIFer* can handle prerequisite checkCIF/PLAT
 > Some entries, listed at the IUCr DVP, are deprecated and replaced by some new ones. See the [CIFCore](https://github.com/COMCIFS/cif_core) (CORE_DIC) CIF dictionary for alternative entries.
 
 The ```.dvp``` files can be edited to one's taste and needs via certain general check types, called by the next keywords:
-- ```PRES``` - the entry must be present in the CIF file
-- ```CHAR``` - must be of type 'char' ('str' in Python)
-- ```NUMB``` - must be of type 'numb' ('float' or 'int' in Python)
-- ```NOEM``` - must be non-empty
-- ```HYDR``` - must be present if structure contains any H atoms
-- ```FRAC``` - must not contain fractions as decimals; checked by presence of any dot symbols  
-- ```GRUP-X``` - all entries, listed in a group No. X, must be present and given, if at least one non-'?' value is present. Maximum 9 different groups can be made (GRUP-1 through GRUP-9)
-- ```LEAS-X``` - at least one of the entries, listed in group, must be present and given. Numbering same as ```GRUP```
-- ```OLDE``` - old (deprecated) entry type
+- ```PRES``` -- the entry must be present in the CIF file
+- ```CHAR``` -- must be of type 'char' ('str' in Python)
+- ```NUMB``` -- must be of type 'numb' ('float' or 'int' in Python)
+- ```NOEM``` -- must be non-empty
+- ```HYDR``` -- must be present if structure contains any H atoms
+- ```FRAC``` -- must not contain fractions as decimals; checked by presence of any dot symbols  
+- ```GRUP-X``` -- all entries, listed in a group No. X, must be present and given, if at least one non-'?' value is present. Maximum 9 different groups can be made (GRUP-1 through GRUP-9)
+- ```LEAS-X``` -- at least one of the entries, listed in group, must be present and given. Numbering same as ```GRUP```
+- ```OLDE``` -- old (deprecated) entry type
 
-Other keywords are to be added later. Comments can be also put at the DVP files with a hashtag symbol.
-
+Other keywords are to be added later. Comments can be also put at the DVP files with a hashtag symbol. 
 Example of usage in DVP file:
 ```
 SYMM_001    _space_group_crystal_system    PRES CHAR
