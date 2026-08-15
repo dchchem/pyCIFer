@@ -6,10 +6,10 @@
 
 ### Installment and file redirection
 pyCIFer is distributed using an executable, however an initial ```.py``` code can be sent to those interested (for that matter please contact the author).
-Upon installation, make sure to direct the files in ```config``` folder ((*i.e.* the template ```.docx``` and ```.inp``` files) to ```C:\exe``` (since it is **crucial** for appropriate work of pyCIFer). At last, one has to create a PATH variable for working in command line.
+Upon installation, make sure to direct the files in ```config``` folder ((*i.e.* the template ```.docx```, ```.inp``` and ```.dvp``` files) to ```C:\exe``` (since it is **crucial** for appropriate work of pyCIFer). At last, one has to create a PATH variable for working in command line.
 
 ### Argument list
-pyCIFer is usually opened *via* a command line by typing either ```pycifer``` (if PATH variable is present) or ```pycifer.exe```. After entering the filename (without any extension!) the following arguments are available:
+pyCIFer is usually opened via a command line by typing either ```pycifer``` (if PATH variable is present) or ```pycifer.exe```. After entering the filename (without any extension!) the following arguments are available:
 - ```[A]``` -- insert additional info to CIF file
 - ```[C]``` -- do a prerequisite validation (checkCIF style)
 - ```[R]``` -- report structure using a template
