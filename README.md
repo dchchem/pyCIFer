@@ -11,12 +11,13 @@ Upon installation, make sure to direct the files in ```config``` folder ((*i.e.*
 ### Argument list
 pyCIFer is usually opened *via* a command line by typing either ```pycifer``` (if PATH variable is present) or ```pycifer.exe```. After entering the filename (without any extension!) the following arguments are available:
 - ```[A]``` -- insert additional info to CIF file
+- ```[C]``` -- do a prerequisite validation (checkCIF style)
 - ```[R]``` -- report structure using a template
 - ```[M]``` -- report multiple structures in one table using a template
 - ```[S]``` -- select new CIF file
 - ```[Q]``` -- quit the program
 
-Asides the last one, below is a short explanation of working with each of the three commands.
+Asides the last one, below is a short explanation of working with each of the five commands.
 
 ### CIF report (one file)
 The style of CIF report in pyCIFer is somewhat similar to what is implemented in CIFTab[^1]; however, the creation of pyCIFer template files (the examples of which are located in ```config``` folder) to one's personal taste is much more simple. The template files are filled using the standard jinja2 protocol and the related docxtpl package. The arguments for filling the template file are the common ones used in CIF files (see the [CIFCore](https://github.com/COMCIFS/cif_core) (CORE_DIC) CIF dictionary). For example, to extract the crystal system of the structure in question, one must type ```{{ _space_group_crystal_system }}``` to a corresponding place in ```.docx``` template. Aside from the common CIFCore values, pyCIFer provides a number of custom ones:
@@ -36,6 +37,36 @@ The report style in templates is basically the same as in one-structure case, ap
 
 ### CIF Editing
 All the additional data to be filled to a CIF file is added *via* a configuration file (with ```.inp``` extension). If custom data (*i.e.* not constant for all crystal structures, as crystal size, its shape and colour, *etc.*) is present, one can pass it by using ```!INPUT``` keyword in configuration file. Please note that the minimum and maximum theta values are taken from ```.p4p``` file (```!SAINGL``` keyword).
+
+### CIF prerequisite validation
+From version v2026/3 and onward, *pyCIFer* can handle prerequisite checkCIF/PLATON-style checking against a data validation prefilter file (with ```.dvp``` extension). By default, it is recommended to pre-check your CIF files using standard IUCr DVP checks (listed on their [website](https://journals.iucr.org/services/cif/checking/prefilter.html)). The ```.dvp``` files need to be, along with configuration files and templates, in the config folder.
+> [!NOTE]
+> Some entries, listed at the IUCr DVP, are deprecated and replaced by some new ones. See the [CIFCore](https://github.com/COMCIFS/cif_core) (CORE_DIC) CIF dictionary for alternative entries.
+
+The ```.dvp``` files can be edited to one's taste and needs via certain general check types, called by the next keywords:
+- ```PRES``` - the entry must be present in the CIF file
+- ```CHAR``` - must be of type 'char' ('str' in Python)
+- ```NUMB``` - must be of type 'numb' ('float' or 'int' in Python)
+- ```NOEM``` - must be non-empty
+- ```HYDR``` - must be present if structure contains any H atoms
+- ```FRAC``` - must not contain fractions as decimals; checked by presence of any dot symbols  
+- ```GRUP-X``` - all entries, listed in a group No. X, must be present and given, if at least one non-'?' value is present. Maximum 9 different groups can be made (GRUP-1 through GRUP-9)
+- ```LEAS-X``` - at least one of the entries, listed in group, must be present and given. Numbering same as ```GRUP```
+- ```OLDE``` - old (deprecated) entry type
+Other keywords are to be added later. Comments can be also put at the DVP files with a hashtag symbol.
+
+Example of usage in DVP file:
+```
+SYMM_001    _space_group_crystal_system    PRES CHAR
+        |   |                          |  |
+        -----                          ----
+        2 tabs                         2 tabs
+```
+The line is consisted of a check code (e.g., standard PLATON one), followed by a checked entry and check type keywords. The spaces between have to be 2 tabs (\t). The ```SYMM_001``` will check crystal system to be present in the CIF file and to be a char in its value, otherwise it will raise an alert.
+
+> [!CAUTION]
+> The DVP is condicted at the very **minimal** level in order to check the absence of any important entries in the CIF
+> file, which is equal to level A-, B-, or C-alert. This **does not** substitute a full checkCIF validation.
 
 ### References
 [^1]: A short history of SHELX. Acta Cryst. A, 2007, **64 (1)**, 112-122. DOI: [https://doi.org/10.1107/S0108767307043930].
