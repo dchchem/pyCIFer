@@ -6,7 +6,7 @@ authors:
   orcid: "https://orcid.org/0000-0003-4549-7981"
 title: "pyCIFer - automated CIF edit and ESI-style report to .docx files"
 version: v2026/3
-doi: 10.5281/zenodo.18148748
+doi: 10.5281/zenodo.18148747
 date-released: 2026-08-15
 
 url: "https://github.com/dchchem/pyCIFer"
