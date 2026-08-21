@@ -4,8 +4,9 @@
 
 ![Static Badge](https://img.shields.io/badge/DOI_(all_versions)-10.5281%2Fzenodo.18148747-blue)
 
+pyCIFer is a program dedicated to adding valuable data entries to CIF files automatically and reporting CIFs in a needed tabular format for both article's main text or supplementary material (ESI). Both editing and reporting the CIF files is conducted using template files, which can be customised up to the user's needs. This program is distributed using an executable, however an initial ```.py``` code can be sent to those interested (for that matter please contact the author).
+
 ### Installment and file redirection
-pyCIFer is distributed using an executable, however an initial ```.py``` code can be sent to those interested (for that matter please contact the author).
 Upon installation, make sure to direct the files in ```config``` folder ((*i.e.* the template ```.docx```, ```.inp``` and ```.dvp``` files) to ```C:\exe``` (since it is **crucial** for appropriate work of pyCIFer). At last, one has to create a PATH variable for working in command line.
 
 ### Argument list
@@ -39,7 +40,7 @@ The report style in templates is basically the same as in one-structure case, ap
 All the additional data to be filled to a CIF file is added *via* a configuration file (with ```.inp``` extension). If custom data (*i.e.* not constant for all crystal structures, as crystal size, its shape and colour, *etc.*) is present, one can pass it by using ```!INPUT``` keyword in configuration file. Please note that the minimum and maximum theta values are taken from ```.p4p``` file (```!SAINGL``` keyword).
 
 ### CIF prerequisite validation
-From version v2026/3 and onward, *pyCIFer* can handle prerequisite checkCIF/PLATON-style checking against a data validation prefilter file (with ```.dvp``` extension). By default, it is recommended to pre-check your CIF files using standard IUCr DVP checks (listed on their [website](https://journals.iucr.org/services/cif/checking/prefilter.html)). The ```.dvp``` files need to be, along with configuration files and templates, in the config folder.
+From version v2026/3 and onward, *pyCIFer* can handle prerequisite checkCIF/PLATON-style checking against a data validation prefilter file (with ```.dvp``` extension). By default, it is recommended to pre-check your CIF files using standard IUCr DVP checks (listed on their [website](https://journals.iucr.org/services/cif/checking/prefilter.html), use the ```precheck.dvp``` file). The ```.dvp``` files need to be, along with configuration files and templates, in the config folder.
 > [!NOTE]
 > Some entries, listed at the IUCr DVP, are deprecated and replaced by some new ones. See the [CIFCore](https://github.com/COMCIFS/cif_core) (CORE_DIC) CIF dictionary for alternative entries.
 
@@ -65,8 +66,8 @@ SYMM_001    _space_group_crystal_system    PRES CHAR
 The line is consisted of a check code (e.g., standard PLATON one), followed by a checked entry and check type keywords. The spaces between have to be 2 tabs (\t). The ```SYMM_001``` will check crystal system to be present in the CIF file and to be a char in its value, otherwise it will raise an alert.
 
 > [!CAUTION]
-> The DVP is condicted at the very **minimal** level in order to check the absence of any important entries in the CIF
-> file, which is equal to level A-, B-, or C-alert. This **does not** substitute a full checkCIF validation.
+> The DVP is conducted at the very **minimal** level in order to check the absence of any important entries in the CIF
+> file, which is equal to level A-, B-, or C-alert(s). A DVP-based check **does not** substitute a full checkCIF validation.
 
 ### References
 [^1]: A short history of SHELX. Acta Cryst. A, 2007, **64 (1)**, 112-122. DOI: [https://doi.org/10.1107/S0108767307043930].
