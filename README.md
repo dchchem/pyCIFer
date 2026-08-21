@@ -23,7 +23,7 @@ Asides the last one, below is a short explanation of working with each of the fi
 ### CIF report (one file)
 The style of CIF report in pyCIFer is somewhat similar to what is implemented in CIFTab[^1]; however, the creation of pyCIFer template files (the examples of which are located in ```config``` folder) to one's personal taste is much more simple. The template files are filled using the standard jinja2 protocol and the related docxtpl package. The arguments for filling the template file are the common ones used in CIF files (see the [CIFCore](https://github.com/COMCIFS/cif_core) (CORE_DIC) CIF dictionary). For example, to extract the crystal system of the structure in question, one must type ```{{ _space_group_crystal_system }}``` to a corresponding place in ```.docx``` template. Aside from the common CIFCore values, pyCIFer provides a number of custom ones:
 - ```{{r chemformula}}``` -  chemical formula in richtext mode, *i.e.* using subscript for numbers;
-- ```{{ spacegroup }}``` -  spacegroup in richtext mode, *i.e.* using italics when needed;
+- ```{{r spacegroup }}``` -  spacegroup in richtext mode, *i.e.* using italics when needed;
 - ```{{ resolution }}``` - crystal structure evaluation resolution (calculated from ```.cif``` file directly);
 - ```{{ tabno }}``` and ```{{ comno }}``` - table and compound (roman numerals!) numbers, respectively.
 
