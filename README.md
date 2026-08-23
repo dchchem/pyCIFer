@@ -5,7 +5,7 @@
 ![Static Badge](https://img.shields.io/badge/DOI_(all_versions)-10.5281%2Fzenodo.18148747-blue) ![Static Badge](https://img.shields.io/badge/suggestions-welcome-8A2BE2) 
 
 pyCIFer is a Python-based program dedicated to adding valuable data entries to CIF files automatically and reporting CIFs in a needed tabular format for both article's main text or supplementary material (ESI). Both editing and reporting the CIF files is conducted using template files, which can be customised up to the user's needs. This program is distributed using an executable, however an initial ```.py``` code can be sent to those interested (for that matter please contact the author).
-pyCIFer primarily uses [PyCIFRW](https://github.com/jamesrhester/pycifrw) package capabilities, (c) Australian Nuclear Science and Technology Organisation (ANSTO).
+pyCIFer primarily uses [PyCIFRW](https://github.com/jamesrhester/pycifrw) package capabilities[^1], (c) Australian Nuclear Science and Technology Organisation (ANSTO).
 
 ### Installment and file redirection
 Upon installation, make sure to direct the files in ```config``` folder ((*i.e.* the template ```.docx```, ```.inp``` and ```.dvp``` files) to ```C:\exe``` (since it is **crucial** for appropriate work of pyCIFer). At last, one has to create a PATH variable for working in command line.
@@ -22,7 +22,7 @@ pyCIFer is usually opened via a command line by typing either ```pycifer``` (if 
 Asides the last one, below is a short explanation of working with each of the five commands.
 
 ### CIF report (one file)
-The style of CIF report in pyCIFer is somewhat similar to what is implemented in CIFTab[^1]; however, the creation of pyCIFer template files (the examples of which are located in ```config``` folder) to one's personal taste is much more simple. The template files are filled using the standard jinja2 protocol and the related docxtpl package. The arguments for filling the template file are the common ones used in CIF files (see the [CIFCore](https://github.com/COMCIFS/cif_core) (CORE_DIC) CIF dictionary[^2]). For example, to extract the crystal system of the structure in question, one must type ```{{ _space_group_crystal_system }}``` to a corresponding place in ```.docx``` template. Aside from the common CIFCore values, pyCIFer provides a number of custom ones:
+The style of CIF report in pyCIFer is somewhat similar to what is implemented in CIFTab[^2]; however, the creation of pyCIFer template files (the examples of which are located in ```config``` folder) to one's personal taste is much more simple. The template files are filled using the standard jinja2 protocol and the related docxtpl package. The arguments for filling the template file are the common ones used in CIF files (see the [CIFCore](https://github.com/COMCIFS/cif_core) (CORE_DIC) CIF dictionary[^3]). For example, to extract the crystal system of the structure in question, one must type ```{{ _space_group_crystal_system }}``` to a corresponding place in ```.docx``` template. Aside from the common CIFCore values, pyCIFer provides a number of custom ones:
 - ```{{r chemformula}}``` -  chemical formula in richtext mode, *i.e.* using subscript for numbers;
 - ```{{r spacegroup }}``` -  spacegroup in richtext mode, *i.e.* using italics when needed;
 - ```{{ resolution }}``` - crystal structure evaluation resolution (calculated from ```.cif``` file directly);
@@ -71,8 +71,9 @@ The line is consisted of a check code (e.g., standard PLATON one), followed by a
 > file, which is equal to level A-, B-, or C-alert(s). A DVP-based check **does not** substitute a full checkCIF validation.
 
 ### References
-[^1]: A short history of SHELX. Acta Cryst. A, 2007, **64 (1)**, 112-122. DOI: [10.1107/S0108767307043930](https://doi.org/10.1107/S0108767307043930).
-[^2]: Specification of the Crystallographic Information File format, version 2.0. J. Appl. Crystallogr., 2016, **49**, 277-284. DOI: [10.1107/S1600576715021871](https://doi.org/10.1107/S1600576715021871).
+[^1]: A validating CIF parser: *PyCIFRW*. J. Appl. Cryst., 2006, **39**, 621–625. DOI: [10.1107/S0021889806015627](https://doi.org/10.1107/S0021889806015627).
+[^2]: A short history of SHELX. Acta Cryst. A, 2007, **64 (1)**, 112-122. DOI: [10.1107/S0108767307043930](https://doi.org/10.1107/S0108767307043930).
+[^3]: Specification of the Crystallographic Information File format, version 2.0. J. Appl. Crystallogr., 2016, **49**, 277-284. DOI: [10.1107/S1600576715021871](https://doi.org/10.1107/S1600576715021871).
 
 
 <div align="right">
